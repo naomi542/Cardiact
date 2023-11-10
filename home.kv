@@ -1,0 +1,87 @@
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+
+<HomeScreen>:
+    name: "home"
+
+    FloatLayout:
+
+        Button:
+            font_size: 18
+            bold: True
+            pos_hint:{"x": 0.15, "top": 0.93}
+            size_hint: 0.7, 0.11
+            text: "Lessons"
+            on_release:
+                root.manager.transition.direction = "left"
+
+        Button:
+            font_size: 18
+            bold: True
+            pos_hint:{"x": 0.15, "top": 0.81}
+            size_hint: 0.7, 0.11
+            text: "New Auscultation"
+            on_release:
+                app.root.current = "newauscultation"
+                root.manager.transition.duration = 0.5
+                root.manager.transition.direction = "left"
+
+        Button:
+            font_size: 18
+            bold: True
+            pos_hint:{"x": 0.15, "top": 0.69}
+            size_hint: 0.7, 0.11
+            text: "Saved Files"
+            on_release:
+                app.root.current = "auscultationhistory"
+                root.manager.transition.duration = 0.5
+                root.manager.transition.direction = "left"
+
+        Button:
+            font_size: 18
+            bold: True
+            pos_hint:{"x": 0.15, "top": 0.57}
+            size_hint: 0.7, 0.11
+            text: "Quizzes"
+            on_release:
+                app.root.current = "quizzes"
+                root.manager.transition.direction = "left"
+        Button:
+            font_size: 18
+            bold: True
+            pos_hint:{"x": 0.15, "top": 0.45}
+            size_hint: 0.7, 0.11
+            text: "Inbox"
+            on_release:
+                root.manager.transition.direction = "left"
+
+        Button:
+            font_size: 18
+            bold: True
+            pos_hint:{"x": 0.15, "top": 0.33}
+            size_hint: 0.7, 0.11
+            text: "My Profile"
+
+        Button:
+            font_size: 18
+            bold: True
+            pos_hint:{"x": 0.15, "top": 0.21}
+            size_hint: 0.7, 0.11
+            text: "Help"
+            on_release:
+                app.root.current = "help"
+                root.manager.transition.direction = "left"
+
+        Button:
+            text: "Log Out"
+            color: 0.1, 0.8, 1, 1
+            pos_hint:{"x": 0.2, "top": 0.08}
+            size_hint: 0.6, 0.03
+            underline: True
+            background_color: 0, 0, 0, 1
+            on_release:
+                app.root.current = "login"
+                root.manager.transition.duration = 0.5
+                root.manager.transition.direction = "right"
+
+
+

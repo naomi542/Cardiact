@@ -1,0 +1,94 @@
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+
+<UserInput@TextInput>:
+    multiline: False
+    size_hint: 0.8, 0.05
+    font_size: 14
+
+<LabelTemplate@Label>:
+    font_size: 16
+    size_hint: 0.35, 0.15
+
+<CreateAccountScreen>:
+    name: "createaccount"
+
+    firstname: firstname
+    lastname: lastname
+    email: email
+    password: password
+    confirm_password: confirm_password
+    error_message: error_message
+
+    FloatLayout:
+        Label:
+            text: "Create Account"
+            font_size: 24
+            size_hint: 0.01, 0.01
+            pos_hint:{"x": 0.5, "top": 0.93}
+
+        LabelTemplate:
+            text: "First Name:"
+            pos_hint:{"x": 0.045, "top": 0.9}
+
+        UserInput:
+            id: firstname
+            pos_hint:{"x": 0.1, "top": 0.8}
+
+        LabelTemplate:
+            text: "Last Name:"
+            pos_hint:{"x": 0.045, "top": 0.78}
+
+        UserInput:
+            id: lastname
+            pos_hint:{"x": 0.1, "top": 0.68}
+
+        LabelTemplate:
+            text: "Email:"
+            pos_hint:{"x": 0, "top": 0.66}
+
+        UserInput:
+            id: email
+            pos_hint:{"x": 0.1, "top": 0.56}
+
+        LabelTemplate:
+            text: "Password: "
+            pos_hint:{"x": 0.042, "top": 0.54}
+
+        UserInput:
+            id: password
+            password: True
+            pos_hint:{"x": 0.1, "top": 0.44}
+
+        LabelTemplate:
+            text: "Confirm Password:"
+            pos_hint:{"x": 0.12, "top": 0.42}
+
+        UserInput:
+            id: confirm_password
+            password: True
+            pos_hint:{"x": 0.1, "top": 0.32}
+
+        Button:
+            text: "Cancel"
+            font_size: 16
+            pos_hint:{"x": 0.1, "top": 0.2}
+            size_hint: 0.37, 0.07
+            on_press:
+                root.cancel()
+                root.manager.transition.direction = "right"
+
+        Button:
+            text: "Create Account"
+            font_size: 16
+            pos_hint:{"x": 0.52, "top": 0.2}
+            size_hint: 0.37, 0.07
+            on_press:
+                root.submit()
+                root.manager.transition.direction = "left"
+
+        Label:
+            id: error_message
+            text: ""
+            font_size: 14
+            size_hint: 0.5, 0.15
+            pos_hint:{"x": 0.25, "top": 0.15}

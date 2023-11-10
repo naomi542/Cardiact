@@ -1,0 +1,145 @@
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+
+<PracticeAuscultationsScreen>:
+    name: "practiceauscultations"
+
+    location: location
+    rec_name: rec_name
+    select_timer: select_timer
+
+    FloatLayout:
+        Button:
+            font_size: 14
+            pos_hint:{"x": 0.7, "y": 0.9}
+            size_hint: 0.2, 0.065
+            text: "Send"
+            on_release:
+                app.root.current = "auscultationresults"
+                root.manager.transition.direction = "left"
+
+        Button:
+            font_size: 14
+            pos_hint:{"x": 0.05, "y": 0.9}
+            size_hint: 0.2, 0.065
+            text: "Back"
+            on_release:
+                app.root.current = "newauscultation"
+                root.manager.transition.direction = "right"
+
+        Label:
+            id: rec_name
+            text: ""
+            font_size: 15
+            size_hint: (0.1, 0.15)
+            pos_hint: {'x': 0.5, 'y': 0.85}
+
+        Label:
+            id: location
+            text: ""
+            font_size: 10
+            size_hint: 0.1, 0.1
+            pos_hint:{"x": 0.1, "top": 0.90}
+
+        Button:
+            font_size: 12
+            pos_hint:{"x": 0.1, "y": 0.7}
+            size_hint: 0.2, 0.065
+            text: "INITIAL!!"
+            on_press:
+                root.setVariables()
+
+        Image:
+            source: "ImageResources/body_front.png"
+            pos_hint:{"x": 0.08, "y": 0.325}
+            size_hint: 0.4, 0.4
+
+        Image:
+            source: "ImageResources/body_back.png"
+            pos_hint:{"x": 0.55, "y": 0.34}
+            size_hint: 0.37, 0.37
+
+
+        Button
+            id: start_recording
+            font_size: 14
+            pos_hint:{"x": 0.40, "y": 0.3}
+            size_hint: 0.2, 0.065
+            background_color: (229, 0.0, 0.0, 1.0)
+            text: "Record"
+            on_press:
+                root.doRecording()
+
+        Button
+            id: play
+            font_size: 14
+            pos_hint:{"x": 0.1, "y": 0.05}
+            size_hint: 0.2, 0.065
+            background_color: (229, 0.0, 0.0, 1.0)
+            text: "Play"
+            on_press:
+                root.playRecording()
+
+
+        Button
+            id: redo
+            font_size: 14
+            pos_hint:{"x": 0.40, "y": 0.05}
+            size_hint: 0.2, 0.065
+            background_color: (229, 0.0, 0.0, 1.0)
+            text: "Redo"
+            on_press:
+                root.redoRecording()
+
+        Button
+            id: next
+            font_size: 14
+            pos_hint:{"x": 0.7, "y": 0.05}
+            size_hint: 0.2, 0.065
+            background_color: (229, 0.0, 0.0, 1.0)
+            text: "Next"
+            on_press:
+                root.nextRecording()
+
+        Button:
+            id: select_timer
+            text: 'Time'
+            on_parent: dropdown.dismiss()
+            on_release: dropdown.open(self)
+            pos_hint:{"x": 0.7, "y": 0.3}
+            size_hint: 0.2, 0.065
+
+        DropDown:
+            id: dropdown
+            on_select: select_timer.text = '{}'.format(args[1])
+
+            Button:
+                text: '3s'
+                size_hint_y: None
+                height: '30dp'
+                on_release: dropdown.select('3s')
+
+            Button:
+                text: '10s'
+                size_hint_y: None
+                height: '30dp'
+                on_release: dropdown.select('10s')
+
+            Button:
+                text: '15s'
+                size_hint_y: None
+                height: '30dp'
+                on_release: dropdown.select('15s')
+
+            Button:
+                text: '20s'
+                size_hint_y: None
+                height: '30dp'
+                on_release: dropdown.select('20s')
+
+
+
+
+
+
+
+

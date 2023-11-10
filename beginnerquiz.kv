@@ -1,0 +1,169 @@
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+
+<BeginnerQuizScreen>:
+    name: "beginnerquiz"
+
+    FloatLayout:
+        BackButtonIcon:
+        BackButton:
+            on_release:
+                app.root.current = "quizzes"
+                root.manager.transition.direction = "right"
+
+        Label:
+            text: "Beginner Quiz"
+            bold: True
+            size_hint: 1, 0.05
+            font_size: 24
+            pos_hint:{"x": 0, "top": 0.95}
+
+        ScrollView:
+            size_hint: 0.85, 0.8
+            pos_hint:{"x": 0.075, "y": 0.05}
+
+            FloatLayout:
+                size_hint_y: 2
+
+                Label:
+                    text: "Question 1"
+                    font_size: 18
+                    color: 0.1, 0.8, 1, 1
+                    size_hint: 0.275, 0.025
+                    pos_hint: {"x": 0, "y": 0.975}
+
+                Label:
+                    text: "Play sound:"
+                    font_size: 16
+                    size_hint: 0.275, 0.05
+                    pos_hint: {"x": 0, "y": 0.93}
+
+                Button:
+                    text: "insert sound file here"
+                    size_hint: 1, 0.1
+                    pos_hint: {"x": 0, "y": 0.835}
+
+                Label:
+                    text: "Anatomical Defect:"
+                    font_size: 16
+                    size_hint: 0.45, 0.05
+                    pos_hint: {"x": 0, "y": 0.775}
+
+                CheckBox:
+                    id: '1a'
+                    group: 'Q1'
+                    size_hint: 0.125, 0.05
+                    pos_hint: {"x": 0, "y": 0.75}
+
+                Label:
+                    text: "a. Right Atrioventricular Valve"
+                    font_size: 14
+                    size_hint: 0.5, 0.05
+                    pos_hint: {"x": 0.17, "y": 0.75}
+
+                CheckBox:
+                    id: '1b'
+                    group: 'Q1'
+                    size_hint: 0.125, 0.05
+                    pos_hint: {"x": 0, "y": 0.725}
+
+                Label:
+                    text: "b. Left Atrioventricular Valve"
+                    font_size: 14
+                    size_hint: 0.5, 0.05
+                    pos_hint: {"x": 0.16, "y": 0.725}
+
+                CheckBox:
+                    id: '1c'
+                    group: 'Q1'
+                    size_hint: 0.125, 0.05
+                    pos_hint: {"x": 0, "y": 0.7}
+
+                Label:
+                    text: "c. Papillary Muscles??"
+                    font_size: 14
+                    size_hint: 0.5, 0.05
+                    pos_hint: {"x": 0.095, "y": 0.7}
+
+                CheckBox:
+                    id: '1d'
+                    group: 'Q1'
+                    size_hint: 0.125, 0.05
+                    pos_hint: {"x": 0, "y": 0.675}
+
+                Label:
+                    text: "d. Aortic Valve"
+                    font_size: 14
+                    size_hint: 0.5, 0.05
+                    pos_hint: {"x": 0.0195, "y": 0.675}
+
+                Label:
+                    text: "Question 2"
+                    font_size: 18
+                    color: 0.1, 0.8, 1, 1
+                    size_hint: 0.275, 0.05
+                    pos_hint: {"x": 0, "y": 0.625}
+
+                Label:
+                    text: "Play sound:"
+                    font_size: 16
+                    size_hint: 0.27, 0.05
+                    pos_hint: {"x": 0, "y": 0.59}
+
+                Button:
+                    text: "insert sound file here"
+                    size_hint: 1, 0.1
+                    pos_hint: {"x": 0, "y": 0.495}
+
+                Label:
+                    text: "Anatomical Defect:"
+                    font_size: 16
+                    size_hint: 0.45, 0.05
+                    pos_hint: {"x": 0, "y": 0.435}
+
+                CheckBox:
+                    id: '2a'
+                    group: 'Q2'
+                    size_hint: 0.125, 0.05
+                    pos_hint: {"x": 0, "y": 0.41}
+
+                Label:
+                    text: "a. Right Atrioventricular Valve"
+                    font_size: 14
+                    size_hint: 0.5, 0.05
+                    pos_hint: {"x": 0.17, "y": 0.41}
+
+                CheckBox:
+                    id: '2b'
+                    group: 'Q2'
+                    size_hint: 0.125, 0.05
+                    pos_hint: {"x": 0, "y": 0.385}
+
+                Label:
+                    text: "b. Left Atrioventricular Valve"
+                    font_size: 14
+                    size_hint: 0.5, 0.05
+                    pos_hint: {"x": 0.16, "y": 0.385}
+
+                CheckBox:
+                    id: '2c'
+                    group: 'Q2'
+                    size_hint: 0.125, 0.05
+                    pos_hint: {"x": 0, "y": 0.36}
+
+                Label:
+                    text: "c. Papillary Muscles??"
+                    font_size: 14
+                    size_hint: 0.5, 0.05
+                    pos_hint: {"x": 0.095, "y": 0.36}
+
+                CheckBox:
+                    id: '2d'
+                    group: 'Q2'
+                    size_hint: 0.125, 0.05
+                    pos_hint: {"x": 0, "y": 0.335}
+
+                Label:
+                    text: "d. Aortic Valve"
+                    font_size: 14
+                    size_hint: 0.5, 0.05
+                    pos_hint: {"x": 0.0195, "y": 0.335}

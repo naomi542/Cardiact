@@ -1,0 +1,43 @@
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+
+WindowManager:
+    LoginScreen:
+    HomeScreen:
+    CreateAccountScreen:
+    AuscultationResultsScreen:
+    ForgotPasswordScreen:
+    NewAuscultationScreen:
+    EmailLoginScreen:
+    EmailScreen:
+    PracticeAuscultationsScreen:
+    AuscultationHistoryScreen:
+    QuizzesScreen:
+    BeginnerQuizScreen:
+    HelpScreen:
+
+<BackButtonIcon@Image>:
+    source: "ImageResources/back_button.png"
+    pos_hint:{"right": 0.15, "y": 0.88}
+    size_hint: 0.1, 0.1
+
+<Button@Button>:
+    background_color: 1.9, 0, 0, 1
+
+<BackButton@Button>:
+    opacity: 0
+    pos_hint:{"x": 0, "y": 0.85}
+    size_hint: 0.2, 0.15
+
+<NextButton@Button>:
+    font_size: 14
+    pos_hint:{"right": 0.95, "y": 0.9}
+    size_hint: 0.2, 0.065
+    background_colour: (229, 0.0, 0.0, 1.0)
+
+<CollapseButtonIcon@Image>:
+    source: "ImageResources/collapse_button.png"
+    size_hint: 0.3, 0.3
+
+<ExpandButtonIcon@Image>:
+    source: "ImageResources/expand_button.png"
+    size_hint: 0.3, 0.3

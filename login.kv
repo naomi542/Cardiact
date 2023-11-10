@@ -1,0 +1,71 @@
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+
+<LoginScreen>:
+    name: "login"
+
+    email: email
+    password: password
+
+    FloatLayout:
+        Label:
+            text: "Email: "
+            size_hint: 0.35, 0.15
+            pos_hint:{"x": 0.05, "top": 0.47}
+            font_size: 16
+
+        TextInput:
+            id: email
+            text: "abc@gmail.com"
+            multiline: False
+            write_tab: False
+            pos_hint:{"x": 0.35, "top": 0.42}
+            size_hint: 0.5, 0.05
+            font_size: 14
+
+        Label:
+            text: "Password: "
+            pos_hint: {"x": 0.05, "top": 0.4}
+            size_hint: 0.35, 0.15
+            font_size: 16
+
+        TextInput:
+            id: password
+            text: "password"
+            multiline: False
+            password: True
+            pos_hint:{"x": 0.35, "top": 0.35}
+            size_hint: 0.5, 0.05
+            font_size: 14
+
+        Button:
+            text:"Login"
+            font_size: 16
+            pos_hint:{"x": 0.3, "top": 0.25}
+            size_hint: 0.4, 0.07
+            on_press:
+                root.login()
+                root.manager.transition.direction = "left"
+
+        Button:
+            text: "Create Account"
+            color: 0.1, 0.8, 1, 1
+            font_size: 14
+            pos_hint:{"x": 0.3, "top": 0.14}
+            size_hint: 0.4, 0.007
+            underline: True
+            background_color: 0, 0, 0, 1
+            on_press:
+                root.create_account()
+                root.manager.transition.direction = "left"
+
+        Button:
+            text: "Forgot Password"
+            color: 0.1, 0.8, 1, 1
+            font_size: 14
+            pos_hint:{"x": 0.3, "top": 0.1}
+            size_hint: 0.4, 0.007
+            underline: True
+            background_color: 0, 0, 0, 1
+            on_press:
+                root.forgot_password()
+                root.manager.transition.direction = "left"

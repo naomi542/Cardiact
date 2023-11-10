@@ -1,0 +1,214 @@
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+#:import RecycleView kivy.uix.recycleview
+
+<CheckList@CheckBox>
+    size_hint_x: 0.1
+    pos_hint_x: 0
+
+<NewAuscultationScreen>:
+    name: "newauscultation"
+
+    recording_name: recording_name
+
+    FloatLayout:
+
+        BackButtonIcon:
+        BackButton:
+            on_release:
+                root.cancel()
+                root.manager.transition.direction = "right"
+
+        TextInput:
+            id: recording_name
+            hint_text: "Untitled Recording"
+            font_size: 24
+            bold: True
+            halign: "center"
+            pos_hint:{"x": 0.18, "y": 0.89}
+            size_hint: 0.64, 0.07
+
+        Label:
+            id: date
+            text: "July 8, 2020"
+            font_size: 16
+            pos_hint:{"x": 0.25, "y": 0.84}
+            size_hint: 0.5, 0.05
+
+        Label:
+            text: "Select locations to auscultate:"
+            font_size: 16
+            pos_hint:{"x": 0.125, "y": 0.78}
+            size_hint: 0.5, 0.05
+
+        Image:
+            source: "ImageResources/body_front.png"
+            pos_hint:{"x": 0.08, "y": 0.46}
+            size_hint: 0.4, 0.4
+
+        Image:
+            source: "ImageResources/body_back.png"
+            pos_hint:{"x": 0.55, "y": 0.475}
+            size_hint: 0.37, 0.37
+
+        ScrollView:
+            size_hint: 0.85, 0.35
+            pos_hint: {"x": 0.075, "y": 0.15}
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: 2
+
+                GridLayout:
+                    rows: 17
+                    halign: "left"
+                    Label:
+                        text: "Front"
+                        font_size: 16
+                        underline: True
+                    BoxLayout:
+                        orientation: "horizontal"
+                        CheckList:
+                            id: front1
+                        Label:
+                            text: "1. Aortic Area"
+                            halign: "left"
+                            font_size: 14
+                            size_hint_x: 0.5
+                        Label:
+                    BoxLayout:
+                        orientation: "horizontal"
+                        CheckList:
+                            id: front2
+                        Label:
+                            text: "2. Tricuspid Area"
+                            font_size: 14
+                            size_hint_x: 0.7
+                        Label:
+                    BoxLayout:
+                        orientation: "horizontal"
+                        CheckList:
+                            id: front3
+                        Label:
+                            text: "3. Pulmonic Area"
+                            font_size: 14
+                            size_hint_x: 0.7
+                        Label:
+                    BoxLayout:
+                        orientation: "horizontal"
+                        CheckList:
+                            id: front4
+                        Label:
+                            text: "4. Mitral Area"
+                            font_size: 14
+                            size_hint_x: 0.5
+                        Label:
+
+
+                    Label:
+                        font_size: 12
+                    Label:
+                        text: "Back"
+                        font_size: 16
+                        underline: True
+                    BoxLayout:
+                        orientation: "horizontal"
+                        CheckList:
+                            id: back1
+                        Label:
+                            text: "1. Left Apex of Lung"
+                            font_size: 14
+                            size_hint_x: 1
+                        Label:
+
+                    BoxLayout:
+                        orientation: "horizontal"
+                        CheckList:
+                            id: back2
+                        Label:
+                            text: "2. Right Apex of Lung"
+                            font_size: 14
+                            size_hint_x: 1.15
+                        Label:
+
+                    BoxLayout:
+                        orientation: "horizontal"
+                        CheckList:
+                            id: back3
+                        Label:
+                            text: "3. Right Upper Lobe"
+                            font_size: 14
+                            size_hint_x: 0.95
+                        Label:
+                    BoxLayout:
+                        orientation: "horizontal"
+                        CheckList:
+                            id: back4
+                        Label:
+                            text: "4. Left Upper Lobe"
+                            font_size: 14
+                            size_hint_x: 0.85
+                        Label:
+                    BoxLayout:
+                        orientation: "horizontal"
+                        CheckList:
+                            id: back5
+                        Label:
+                            text: "5. Left Middle Lobe - 3 ICS"
+                            font_size: 14
+                            size_hint_x: 1.75
+                        Label:
+                    BoxLayout:
+                        orientation: "horizontal"
+                        CheckList:
+                            id: back6
+                        Label:
+                            text: "6. Right Middle Lobe - 3 ICS"
+                            font_size: 14
+                            size_hint_x: 1.98
+                        Label:
+
+                    BoxLayout:
+                        orientation: "horizontal"
+                        CheckList:
+                            id: back7
+                        Label:
+                            text: "7. Right Middle Lobe - 7 ICS"
+                            font_size: 14
+                            size_hint_x: 1.98
+                        Label:
+                    BoxLayout:
+                        orientation: "horizontal"
+                        CheckList:
+                            id: back8
+                        Label:
+                            text: "8. Left Middle Lobe - 7 ICS"
+                            font_size: 14
+                            size_hint_x: 1.8
+                        Label:
+                    BoxLayout:
+                        orientation: "horizontal"
+                        CheckList:
+                            id: back9
+                        Label:
+                            text: "9. Left Lower Lobe"
+                            font_size: 14
+                            size_hint_x: 0.88
+                        Label:
+                    BoxLayout:
+                        orientation: "horizontal"
+                        CheckList:
+                            id: back10
+                        Label:
+                            text: "10. Right Lower Lobe"
+                            font_size: 14
+                            size_hint_x: 1.1
+                        Label:
+
+        Button:
+            text: "Next"
+            pos_hint:{"right": 0.95, "top": 0.1}
+            size_hint: 0.2, 0.065
+            background_color: 1.9, 0, 0, 1
+            on_release:
+                root.submit()
+                root.manager.transition.direction = "left"

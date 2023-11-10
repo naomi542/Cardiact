@@ -1,0 +1,101 @@
+##:import FadeTransition kivy.uix.screenmanager.FadeTransition
+
+<AuscultationHistoryScreen>:
+    name: "auscultationhistory"
+
+    FloatLayout:
+
+        BackButtonIcon:
+        BackButton:
+            on_release:
+                app.root.current = "home"
+                root.manager.transition.direction = "right"
+
+        Label:
+            text: "Auscultation History"
+            font_size: 24
+            bold: True
+            halign: "center"
+            pos_hint:{"x": 0.18, "y": 0.89}
+            size_hint: 0.64, 0.07
+
+        Button:
+            font_size: 14
+            pos_hint:{"x": 0.82, "y": 0.9}
+            size_hint: 0.15, 0.05
+            text: "Share"
+            on_release:
+                app.root.current = "emaillogin"
+                root.manager.transition.direction = "left"
+
+        GridLayout:
+            cols: 3
+            spacing: 10
+            size_hint: 0.8, 0.04
+            pos_hint:{"x": 0.1, "y": 0.8}
+
+            Button:
+                id: filter
+                text: "Filter              "
+                font_size: 14
+                background_normal: ''
+                background_color: 255, 255, 255, 1
+                color: 0, 0, 0, 1
+
+            Button:
+                id: sort
+                text: "Sort By          "
+                font_size: 14
+                background_normal: ''
+                background_color: 255, 255, 255, 1
+                color: 0, 0, 0, 1
+
+            Image:
+                source: "ImageResources/search_icon.png"
+                size: 15, 15
+
+        Image:
+            source: "ImageResources/dropdown_triangle.ico"
+            size: 12, 12
+            pos_hint: {"x": -0.19, "y": 0.32}
+
+        Image:
+            source: "ImageResources/dropdown_triangle.ico"
+            size: 12, 12
+            pos_hint: {"x": 0.085, "y": 0.32}
+
+        BoxLayout:
+            size_hint: 0.8, 0.67
+            pos_hint: {"x": 0.1, "y": 0.04}
+
+            Button:
+                background_color: 0.5, 0.5, 0.5, 1
+
+        BoxLayout:
+            size_hint: 0.8, 0.06
+            pos_hint: {"x": 0.1, "top": 0.76}
+
+            Button:
+                background_color: 1.9, 0, 0, 1
+
+        GridLayout:
+            cols:2
+            size_hint: 0.8, 0.06
+            pos_hint: {"x": 0.1, "top": 0.76}
+
+            Label:
+                text: "Recording Name"
+                font_size: 16
+                bold: True
+            Label:
+                text: "Date"
+                font_size: 16
+                bold: True
+
+        ScrollView:
+            size_hint: 0.8, 0.65
+            pos_hint: {"x": 0.1, "y": 0.05}
+
+            BoxLayout:
+                id: datatable
+                size_hint_y: 1.8

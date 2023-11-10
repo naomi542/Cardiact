@@ -1,0 +1,161 @@
+<EmailLoginScreen>:
+    name: "emaillogin"
+
+    email: email
+    password: password
+
+    FloatLayout:
+
+        BackButtonIcon:
+        BackButton:
+            opacity: 0
+            pos_hint:{"right": 0.12, "y": 0.9}
+            size_hint: 0.1, 0.1
+            on_release:
+                app.root.current = "auscultationhistory"
+                root.manager.transition.direction = "right"
+
+        Label:
+            text: "Sign into a Gmail to share your files"
+            size_hint: 1, 0.1
+            pos_hint:{"y": 0.75}
+            font_size: 16
+
+
+        Label:
+            text:"Email: "
+            size_hint: 0.35, 0.15
+            pos_hint:{"x": 0.05, "top": 0.6}
+            font_size: 16
+
+        TextInput:
+            id: email
+            text: "bme261group13@gmail.com"
+            multiline: False
+            pos_hint:{"x": 0.35, "top": 0.55}
+            size_hint: 0.5, 0.05
+            font_size: 14
+
+        Label:
+            text:"Password: "
+            pos_hint: {"x": 0.05, "top": 0.5}
+            size_hint: 0.35, 0.15
+            font_size: 16
+
+        TextInput:
+            id: password
+            text: "DreamTeam13!"
+            multiline: False
+            password: True
+            pos_hint:{"x": 0.35, "top": 0.45}
+            size_hint: 0.5, 0.05
+            font_size: 14
+
+        Button:
+            text: "Login"
+            font_size: 16
+            pos_hint:{"x": 0.3, "top": 0.25}
+            size_hint: 0.4, 0.07
+            on_release:
+                root.loginBtn()
+                root.manager.transition.direction = "left"
+
+
+
+<EmailScreen>:
+    name: "email"
+
+    FloatLayout:
+        BackButtonIcon:
+        BackButton:
+            opacity: 0
+            pos_hint:{"right": 0.12, "y": 0.9}
+            size_hint: 0.1, 0.1
+            on_release:
+                app.root.current = "auscultationhistory"
+                root.manager.transition.direction = "right"
+
+        Label:
+            text: "To: "
+            pos_hint: {'center_x': 0.1, 'center_y': 0.85}
+        TextInput:
+            id: tosend
+            text: "bme261group13@gmail.com"
+            multinline:False
+            size_hint: 0.75, 0.05
+            pos_hint: {'center_x': 0.6, 'center_y': 0.85}
+
+        Label:
+            pos_hint: {'center_x': 0.1, 'center_y': 0.79}
+            text: "Subject: "
+        TextInput:
+            id: sub
+            multinline:False
+            size_hint: 0.75, 0.05
+            pos_hint: {'center_x': 0.6, 'center_y': 0.79}
+
+        Label:
+            text: "Body: "
+            pos_hint: {'center_x': 0.1, 'center_y': 0.72}
+        TextInput:
+            id: body
+            multinline:False
+            size_hint: 0.75, 0.4
+            pos_hint: {'center_x': 0.6, 'center_y': 0.53}
+
+        Label:
+            text: "Attachments: "
+            pos_hint: {'center_x': 0.15, 'center_y': 0.275}
+        Label:
+			id: message
+			text: root.message
+            pos_hint: {'x': 0, 'top': 0.075}
+            size_hint: 1, 0.1
+
+        Button:
+            pos_hint: {'x': 0.2, 'y': 0.05}
+            size_hint: 0.6, 0.1
+            spacing: 10
+            text: "Send"
+            on_press: root.send()
+
+        StackLayout:
+            orientation: 'lr-tb'
+            pos_hint: {'x': 0.025, 'y': 0.2}
+            size_hint_y: None
+            height: 30
+            spacing: 5
+
+            Button:
+                text: 'Choose File'
+                size_hint_x: 0.25
+                on_release: root.open_popup()
+            TextInput:
+                id: get_file
+                readonly: True
+                size_hint_x: 0.7
+
+
+<FileChoosePopup>:
+    title: "Choose a File"
+    size_hint: .9, .9
+    auto_dismiss: False
+
+    BoxLayout:
+        orientation: "vertical"
+        FileChooser:
+            id: filechooser
+            FileChooserListLayout
+
+        BoxLayout:
+            size_hint: (1, 0.1)
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            spacing: 20
+            Button:
+                text: "Cancel"
+                on_release: root.dismiss()
+            Button:
+                text: "Load"
+                on_release: root.load(filechooser.selection)
+                id: ldbtn
+                disabled: True if filechooser.selection==[] else False

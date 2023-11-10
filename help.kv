@@ -1,0 +1,180 @@
+<HelpScreen>:
+    name: "help"
+
+    FloatLayout:
+        BackButtonIcon:
+        BackButton:
+            on_release:
+                app.root.current = "home"
+                root.manager.transition.direction = "right"
+
+        Label:
+            text: "Help"
+            bold: True
+            size_hint: 1, 0.05
+            font_size: 24
+            pos_hint:{"x": 0, "top": 0.95}
+
+        Label:
+            text: "FAQ"
+            font_size: 18
+            bold: True
+            text_size: self.size
+            halign:'left'
+            pos_hint:{"x":0.05, "y":0.85}
+
+        ScrollView:
+            size_hint: 0.9, 0.15
+            pos_hint: {"x":0.05, "y":0.7}
+
+            StackLayout:
+                size_hint:1,2.5
+                orientation: 'lr-tb'
+                spacing:2
+
+                TextInput:
+                    size_hint: 0.9,0.1
+                Image:
+                    source: "ImageResources/search_icon.png"
+                    size_hint: 0.08, 0.1
+
+                GridLayout:
+                    size_hint:1,1
+                    rows:7
+                    Label:
+                        text: "Why does my head hurt?"
+                        font_size: 12
+                        bold: True
+                        text_size: self.size
+                        halign:'left'
+                    Label:
+                        text: "You're in engineering"
+                        font_size: 12
+                        text_size: self.size
+                        halign:'left'
+                    Label:
+                        text: "Why does my heart hurt?"
+                        font_size: 12
+                        bold: True
+                        text_size: self.size
+                        halign:'left'
+                    Label:
+                        text: "You're in engineering"
+                        font_size: 12
+                        text_size: self.size
+                        halign:'left'
+                    Label:
+                        text: "Why does my body hurt?"
+                        font_size: 12
+                        bold: True
+                        text_size: self.size
+                        halign:'left'
+                    Label:
+                        text: "You're in engineering"
+                        font_size: 12
+                        text_size: self.size
+                        halign:'left'
+                    Label:
+                        text: ""
+                        font_size: 12
+
+        Label:
+            text: "Medical Terminology"
+            font_size: 18
+            bold: True
+            text_size: self.size
+            halign:'left'
+            pos_hint:{"x":0.05, "y":0.60}
+
+        ScrollView:
+            size_hint: 0.9, 0.15
+            pos_hint: {"x": 0.05, "y": 0.45}
+
+            StackLayout:
+                size_hint:1,2.5
+                orientation: 'lr-tb'
+                spacing:2
+
+                TextInput:
+                    size_hint: 0.9,0.1
+                Image:
+                    source: "ImageResources/search_icon.png"
+                    size_hint: 0.08, 0.1
+
+                GridLayout:
+                    size_hint:1,1
+                    rows:5
+                    Label:
+                        text: "Aortic Regurgitation (AR):"
+                        font_size: 12
+                        bold: True
+                        text_size: self.size
+                        halign:'left'
+                    Label:
+                        text: "leaking of the aortic valve of the heart that causes blood to flow in the reverse direction during ventricular diastole, from the aorta into the left ventricle"
+                        font_size: 12
+                        text_size: self.size
+                        halign:'left'
+
+                    Label:
+                        text: "Mitral Stenosis:"
+                        font_size: 12
+                        bold: True
+                        text_size: self.size
+                        halign:'left'
+                    Label:
+                        text: "narrowing of the mitral valve opening that blocks (obstructs) blood flow from the left atrium to the left ventricle"
+                        font_size: 12
+                        text_size: self.size
+                        halign:'left'
+                    Label:
+                        text: ""
+                        font_size: 12
+
+        Label:
+            text: "Video Tutorial"
+            font_size: 18
+            bold: True
+            text_size: self.size
+            halign:'left'
+            pos_hint:{"x":0.05, "y":0.40}
+
+        Button:
+            text: "App Walkthrough"
+            pos_hint:{"x":0.05, "top": 0.375}
+            size_hint:0.4,0.15
+
+        FloatLayout:
+            size_hint: 1, 0.2
+            canvas.before:
+                Color:
+                    rgba: 129/255, 129/255, 129/255, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            Label:
+                text: "Contact Us"
+                font_size: 18
+                bold: True
+                text_size: self.size
+                halign:'left'
+                pos_hint:{"x":0.05, "y":0.7}
+            Label:
+                text: "University of Waterloo -- BME 2023"
+                font_size: 14
+                text_size: self.size
+                halign:'left'
+                pos_hint:{"x":0.05, "y":0.5}
+            Label:
+                text: "BME 261: Team 13"
+                font_size: 14
+                text_size: self.size
+                halign:'left'
+                pos_hint:{"x":0.05, "y":0.3}
+            Label:
+                text: "Email: bme261group13@gmail.com"
+                font_size: 14
+                text_size: self.size
+                halign:'left'
+                pos_hint:{"x":0.05, "y":0.1}
+

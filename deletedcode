@@ -1,0 +1,86 @@
+def show_dropdown(button, *largs):
+    dp = DropDown()
+    dp.bind(on_select=lambda instance, x: setattr(button, 'text', x))
+    for i in range(10):
+        item = Button(text='hello %d' % i, size_hint_y=None, height=44)
+        item.bind(on_release=lambda btn: dp.select(btn.text))
+        dp.add_widget(item)
+    dp.open(button)
+
+
+def touch_move(instance, touch):
+    instance.center = touch.pos
+
+
+btn = Button(text='SHOW', size_hint=(None, None), pos=(300, 200))
+btn.bind(on_release=show_dropdown, on_touch_move=touch_move)
+
+
+  StackLayout:
+            orientation: 'lr-tb'
+            pos_hint:{"x": 0, "top": 0.75}
+
+            SavedRecordingsDropDown:
+                #pos_hint: {"x": 0, "top": 0.75}
+                size_hint: 1,0.05
+
+            SavedRecordingsDropDown:
+                size_hint: 1,0.05
+
+            SavedRecordingsDropDown:
+                size_hint: 1,0.05
+
+            SavedRecordingsDropDown:
+                size_hint: 1,0.05
+
+<SavedRecordingsDropDown>:
+    RelativeLayout:
+        Button:
+
+            id: btn
+            text: 'Date'
+            height: root.height
+            on_parent:
+                dropdown.dismiss()
+
+            on_release:
+                dropdown.open(self)
+
+            size_hint_y: None
+
+        ExpandButtonIcon:
+            pos_hint:{"x":0.8, "center_y":0.5}
+
+    DropDown:
+        id: dropdown
+
+        Label:
+            text: 'First Item'
+            size_hint_y: None
+            height: root.height
+            canvas.before:
+                Color:
+                    rgba: 129/255, 129/255, 129/255, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+        Label:
+            text: 'Second Item'
+            size_hint_y: None
+            height: root.height
+            canvas.before:
+                Color:
+                    rgba: 129/255, 129/255, 129/255, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+        Label:
+            text: 'Third Item'
+            size_hint_y: None
+            height: root.height
+            canvas.before:
+                Color:
+                    rgba: 129/255, 129/255, 129/255, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size

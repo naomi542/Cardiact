@@ -1,0 +1,32 @@
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+
+<AuscultationResultsScreen>:
+    name: "auscultationresults"
+
+    FloatLayout:
+
+        Label:
+            text: "Results"
+            bold: True
+            size_hint: 1, 0.05
+            font_size: 24
+            pos_hint:{"x": 0, "top": 0.95}
+
+        Button:
+            font_size: 16
+            pos_hint:{"x": 0.75, "y": 0.895}
+            size_hint: 0.2, 0.07
+            text: "Share"
+            on_release:
+                app.root.current = "emaillogin"
+                root.manager.transition.direction = "left"
+
+        BackButtonIcon:
+        BackButton:
+            opacity: 0
+            pos_hint:{"right": 0.12, "y": 0.9}
+            size_hint: 0.1, 0.1
+            on_release:
+                app.root.current = "home"
+                root.manager.transition.direction = "right"
+
